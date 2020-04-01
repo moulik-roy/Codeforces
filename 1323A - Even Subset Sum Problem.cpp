@@ -3,38 +3,24 @@
 using namespace std;
 
 int main(){
-	int t, n, i, even_count, odd_count;
+	int t, n, i;
 	cin>>t;
 	while(t--){
 		cin>>n;
 		int a[n];
 		vector <int> p;
-		for(i=0, odd_count=0, even_count=0; i<n; i++){
+		for(i=0; i<n; i++){
 			cin>>a[i];
 			if(a[i]%2==0)
-				even_count++;
-			else
-				odd_count++;
+				p.push_back(i+1);
 		}
-		if(even_count>0){
-			for(i=0; i<n; i++){
-				if(a[i]%2==0){
-					p.push_back(i+1);
-					break;
-				}
-			}
-		}
-		else if(odd_count>1){
-			for(i=0, odd_count=0; i<n && odd_count<2; i++){
-				if(a[i]%2!=0){
-					odd_count++;
-					p.push_back(i+1);
-				}
-			}
-		}
-		if(p.size()==0)
+		if(n==1 && a[0]%2!=0)
 			cout<<"-1\n";
 		else{
+			if(p.size()==0){
+				for(i=0; i<n && p.size()<2; i++)
+					p.push_back(i+1);
+			}
 			cout<<p.size()<<"\n";
 			for(i=0; i<p.size(); i++)
 				cout<<p[i]<<" ";
