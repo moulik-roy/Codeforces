@@ -5,7 +5,7 @@ int main(){
 	int n;
 	cin>>n;
 	if(n<10)
-		cout<<1<<" "<<n<<"\n";
+		cout<<1<<"\n"<<n<<"\n";
 	else{
 		cout<<n<<"\n";
 		while(n--)
